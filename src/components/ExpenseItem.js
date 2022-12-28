@@ -1,14 +1,22 @@
 import React from 'react'
+import './ExpenseItem.css';
 
-function ExpenseItem() {
+function ExpenseItem(props) {
+    const month = props.date.toLocaleString('en-US',{month:'long'});
+    const day = props.date.toLocaleString('en-US',{day:'2-digit'});
+    const year = props.date.getFullYear();
   return (
-    <div>
-        <h2>Expense Item</h2>
-        <ul>
-            <li>Food Rs 10</li>
-            <li>Petrol Rs 100</li>
-            <li>Movies Rs 200</li>
-        </ul>
+    <div className='expense-item'>
+        <div>
+            <div>{month}</div>
+            <div>{day}</div>
+            <div>{year}</div>
+        </div>
+        <div className='expense-item__description'>
+            <h2>{props.title}</h2>
+            <div className='expense-item__price'>${props.amount}</div> 
+            <div className='expense-item_location'>{props.location}</div> 
+        </div>
     </div>
   )
 }
