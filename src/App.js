@@ -15,9 +15,12 @@ function App() {
 
 
       {
-       expenses.length > 0 ? expenses.map((expense) => {
+        expenses.length > 0 ? expenses.map((expense) => {
 
-          return (<ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} location={expense.LocationOfExpenditure} />)
+          return (
+            <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}
+              location={expense.LocationOfExpenditure} />
+          )
         }) : "No data available"
       }
     </div>
