@@ -1,7 +1,7 @@
 import './App.css';
-import ExpenseItem from './components/ExpenseItem';
+import Expenses from './components/Expenses/Expenses';
 
-function App() {
+const App = () => {
 
   const expenses = [
     { id: "e1", title: "Toilet Paper", amount: 94.12, date: new Date(2020, 7, 14), LocationOfExpenditure: "online" },
@@ -11,18 +11,8 @@ function App() {
   ];
   return (
     <div className="App">
-      <h2>Lets start</h2>
-
-
-      {
-        expenses.length > 0 ? expenses.map((expense) => {
-
-          return (
-            <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}
-              location={expense.LocationOfExpenditure} />
-          )
-        }) : "No data available"
-      }
+      <h2>Lets start </h2>
+       <Expenses  expenses={expenses} />
     </div>
   );
 }
