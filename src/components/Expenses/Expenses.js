@@ -5,7 +5,7 @@ import './Expenses.css'
 
 
 const  Expenses = (props) => {
-  console.log(props)
+
   return (
     <Card className='expenses'>
         {
