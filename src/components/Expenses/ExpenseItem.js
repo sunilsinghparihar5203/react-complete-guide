@@ -8,14 +8,14 @@ const ExpenseItem = (props)=> {
   const [Title, setTitle] = useState(props.title)
   const [Expence, setExpence] = useState(props.amount)
   const [Display, setDisplay] = useState(true)
-  const ChangeTitle = () =>{
-    setTitle("Updated")
-    setDisplay(false)
-  }
+  // const ChangeTitle = () =>{
+  //   setTitle("Updated")
+  //   setDisplay(false)
+  // }
 
-  const ChangeExpence = () =>{
-    setExpence(100)
-  }
+  // const ChangeExpence = () =>{
+  //   setExpence(100)
+  // }
   
   
   return (
@@ -23,9 +23,9 @@ const ExpenseItem = (props)=> {
     <Card className='expense-item'>
         <ExpenseDate date ={props.date} />
         <ExpenseDetails title={Title} amount={Expence} location={props.location} />
-        <button onClick={ChangeTitle}>Delete Expense</button>
+        {/* <button onClick={ChangeTitle}>Delete Expense</button>
         
-        <button onClick={ChangeExpence}>Change Expense</button>
+        <button onClick={ChangeExpence}>Change Expense</button> */}
     </Card>
   )
 }
