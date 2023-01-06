@@ -20,6 +20,7 @@ const  Expenses = (props) => {
       <ExpensesFilter selected={filteredYear} onChangeFilter ={filterChangeHandler}/>
         {
         props.expenses.length > 0 ? props.expenses.map((expense) => {
+          // This will only show expenses from selected year
           if(expense.date.getFullYear() == filteredYear){
             return (
               <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}
