@@ -10,27 +10,32 @@ const  Expenses = (props) => {
 
   const [filteredYear,setFilteredYear] = useState('2020')
   const filterChangeHandler = selectedYear =>{
-    console.log("expense js")
-    console.log(selectedYear)
     setFilteredYear(selectedYear)
   }
-  
+  const filteredExpnses = props.expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
+  let expenseContent = <p>No data available</p>
+
+  let message = "";
+  if(filteredExpnses.length === 1){
+    message = <p>Only single Expense here. Please add more...</p>
+  }
+
+  if(filteredExpnses.length > 0){
+    expenseContent = filteredExpnses.map((expense) => {
+      return (
+        <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}
+          location={expense.LocationOfExpenditure} />
+      )  
+    })
+  }
   return (
     <Card className='expenses'>
       <ExpensesFilter selected={filteredYear} onChangeFilter ={filterChangeHandler}/>
-        {
-        props.expenses.length > 0 ? props.expenses.map((expense) => {
-          // This will only show expenses from selected year
-          if(expense.date.getFullYear() == filteredYear){
-            return (
-              <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}
-                location={expense.LocationOfExpenditure} />
-            )
-          }
-         
-        }) : "No data available"
-      }
-      
+        {expenseContent}
+        {message}
     </Card>
   )
 }
