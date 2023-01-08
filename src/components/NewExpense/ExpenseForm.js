@@ -52,7 +52,7 @@ function ExpenseForm(props) {
         e.preventDefault()
         const ExpenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate),
             LocationOfExpenditure: "online"
         }
@@ -60,6 +60,7 @@ function ExpenseForm(props) {
         setEnteredTitle('')
         setEnteredAmount('')
         setEnteredDate('')
+        props.formVisibility()
     }
 
 
